@@ -1,0 +1,501 @@
+2018-05-11 02:28:39 Error: Fatal Error (4): syntax error, unexpected '}' in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\admin\dsVB.php, line 35]
+2018-05-11 02:28:39 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /plugins/admin/qlvb-admin-dsVB.php
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\Program File...', 35)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\Program File...', 35, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\Program File...', 35, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 02:29:13 Error: Fatal Error (4): syntax error, unexpected '}' in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\admin\dsVB.php, line 35]
+2018-05-11 02:29:13 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /plugins/admin/qlvb-admin-dsVB.php
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\Program File...', 35)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\Program File...', 35, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\Program File...', 35, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 02:29:14 Error: Fatal Error (4): syntax error, unexpected '}' in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\admin\dsVB.php, line 35]
+2018-05-11 02:29:14 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /plugins/admin/qlvb-admin-dsVB.php
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\Program File...', 35)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\Program File...', 35, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\Program File...', 35, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 02:31:16 Error: Fatal Error (4): syntax error, unexpected '}' in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\admin\dsVB.php, line 35]
+2018-05-11 02:31:16 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /plugins/admin/qlvb-admin-dsVB.php
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\Program File...', 35)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\Program File...', 35, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\Program File...', 35, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 02:32:25 Error: Fatal Error (4): syntax error, unexpected '}' in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\admin\dsVB.php, line 35]
+2018-05-11 02:32:25 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /plugins/admin/qlvb-admin-dsVB.php
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\Program File...', 35)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\Program File...', 35, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\Program File...', 35, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 02:41:40 Error: Fatal Error (1): Class 'PHPExcel_IOFactory' not found in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller.php, line 11]
+2018-05-11 02:41:40 Error: [FatalErrorException] Class 'PHPExcel_IOFactory' not found
+Request URL: /plugins/admin/qlvb-admin-importExcel.php
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Class 'PHPExcel...', 'C:\\Program File...', 11)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'PHPExcel...', 'C:\\Program File...', 11, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Class 'PHPExcel...', 'C:\\Program File...', 11, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 03:02:23 Error: Fatal Error (1): Call to a member function getSheet() on null in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller.php, line 22]
+2018-05-11 03:02:23 Error: [FatalErrorException] Call to a member function getSheet() on null
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\Program File...', 22)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\Program File...', 22, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\Program File...', 22, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 03:05:32 Error: Fatal Error (1): Call to private PHPExcel_IOFactory::__construct() from invalid context in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller.php, line 7]
+2018-05-11 03:05:32 Error: [FatalErrorException] Call to private PHPExcel_IOFactory::__construct() from invalid context
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to private...', 'C:\\Program File...', 7)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to private...', 'C:\\Program File...', 7, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to private...', 'C:\\Program File...', 7, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 03:06:22 Error: Fatal Error (1): Call to private PHPExcel_IOFactory::__construct() from invalid context in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller.php, line 7]
+2018-05-11 03:06:22 Error: [FatalErrorException] Call to private PHPExcel_IOFactory::__construct() from invalid context
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to private...', 'C:\\Program File...', 7)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to private...', 'C:\\Program File...', 7, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to private...', 'C:\\Program File...', 7, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 03:06:26 Error: Fatal Error (1): Call to private PHPExcel_IOFactory::__construct() from invalid context in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller.php, line 7]
+2018-05-11 03:06:26 Error: [FatalErrorException] Call to private PHPExcel_IOFactory::__construct() from invalid context
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to private...', 'C:\\Program File...', 7)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to private...', 'C:\\Program File...', 7, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to private...', 'C:\\Program File...', 7, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 03:07:00 Error: Fatal Error (1): Call to private PHPExcel_IOFactory::__construct() from invalid context in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller.php, line 7]
+2018-05-11 03:07:00 Error: [FatalErrorException] Call to private PHPExcel_IOFactory::__construct() from invalid context
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to private...', 'C:\\Program File...', 7)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to private...', 'C:\\Program File...', 7, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to private...', 'C:\\Program File...', 7, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 03:07:44 Error: Fatal Error (1): Class 'PHPExcel_Reader_Excel2007' not found in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\model.php, line 137]
+2018-05-11 03:07:44 Error: [FatalErrorException] Class 'PHPExcel_Reader_Excel2007' not found
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Class 'PHPExcel...', 'C:\\Program File...', 137)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'PHPExcel...', 'C:\\Program File...', 137, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Class 'PHPExcel...', 'C:\\Program File...', 137, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 03:08:14 Error: Fatal Error (1): Class 'PHPExcel_Reader_Excel2007' not found in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\model.php, line 137]
+2018-05-11 03:08:14 Error: [FatalErrorException] Class 'PHPExcel_Reader_Excel2007' not found
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Class 'PHPExcel...', 'C:\\Program File...', 137)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'PHPExcel...', 'C:\\Program File...', 137, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Class 'PHPExcel...', 'C:\\Program File...', 137, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 03:21:08 Error: Fatal Error (1): Class 'PHPExcel_IOFactory' not found in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller.php, line 7]
+2018-05-11 03:21:08 Error: [FatalErrorException] Class 'PHPExcel_IOFactory' not found
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Class 'PHPExcel...', 'C:\\Program File...', 7)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'PHPExcel...', 'C:\\Program File...', 7, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Class 'PHPExcel...', 'C:\\Program File...', 7, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 03:21:53 Error: Fatal Error (1): Using $this when not in object context in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller.php, line 7]
+2018-05-11 03:21:53 Error: [FatalErrorException] Using $this when not in object context
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Using $this whe...', 'C:\\Program File...', 7)
+#1 [internal function]: ErrorHandler::handleError(1, 'Using $this whe...', 'C:\\Program File...', 7, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Using $this whe...', 'C:\\Program File...', 7, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 03:24:15 Error: Fatal Error (1): Class 'PHPExcel_IOFactory' not found in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller.php, line 6]
+2018-05-11 03:24:15 Error: [FatalErrorException] Class 'PHPExcel_IOFactory' not found
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Class 'PHPExcel...', 'C:\\Program File...', 6)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'PHPExcel...', 'C:\\Program File...', 6, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Class 'PHPExcel...', 'C:\\Program File...', 6, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 03:31:06 Error: Fatal Error (1): Class 'Spreadsheet_Excel_Reader' not found in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\function.php, line 107]
+2018-05-11 03:31:06 Error: [FatalErrorException] Class 'Spreadsheet_Excel_Reader' not found
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Class 'Spreadsh...', 'C:\\Program File...', 107)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'Spreadsh...', 'C:\\Program File...', 107, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Class 'Spreadsh...', 'C:\\Program File...', 107, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 03:31:14 Error: Fatal Error (1): Class 'Spreadsheet_Excel_Reader' not found in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\function.php, line 107]
+2018-05-11 03:31:14 Error: [FatalErrorException] Class 'Spreadsheet_Excel_Reader' not found
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Class 'Spreadsh...', 'C:\\Program File...', 107)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'Spreadsh...', 'C:\\Program File...', 107, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Class 'Spreadsh...', 'C:\\Program File...', 107, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 03:37:09 Error: Fatal Error (1): Call to undefined function loadWorksheet() in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller.php, line 6]
+2018-05-11 03:37:09 Error: [FatalErrorException] Call to undefined function loadWorksheet()
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\Program File...', 6)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\Program File...', 6, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\Program File...', 6, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 03:41:45 Error: Fatal Error (1): Call to undefined function PhpExcelComponent() in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller.php, line 6]
+2018-05-11 03:41:45 Error: [FatalErrorException] Call to undefined function PhpExcelComponent()
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\Program File...', 6)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\Program File...', 6, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\Program File...', 6, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 03:42:26 Error: Fatal Error (1): Class 'PhpExcelComponent' not found in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller.php, line 6]
+2018-05-11 03:42:26 Error: [FatalErrorException] Class 'PhpExcelComponent' not found
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Class 'PhpExcel...', 'C:\\Program File...', 6)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'PhpExcel...', 'C:\\Program File...', 6, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Class 'PhpExcel...', 'C:\\Program File...', 6, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 03:44:21 Error: Fatal Error (1): Using $this when not in object context in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller.php, line 6]
+2018-05-11 03:44:21 Error: [FatalErrorException] Using $this when not in object context
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Using $this whe...', 'C:\\Program File...', 6)
+#1 [internal function]: ErrorHandler::handleError(1, 'Using $this whe...', 'C:\\Program File...', 6, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Using $this whe...', 'C:\\Program File...', 6, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 03:45:08 Error: Fatal Error (1): Class 'Common' not found in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller.php, line 6]
+2018-05-11 03:45:08 Error: [FatalErrorException] Class 'Common' not found
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Class 'Common' ...', 'C:\\Program File...', 6)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'Common' ...', 'C:\\Program File...', 6, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Class 'Common' ...', 'C:\\Program File...', 6, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 03:47:19 Error: Fatal Error (1): Class 'Common' not found in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller.php, line 6]
+2018-05-11 03:47:19 Error: [FatalErrorException] Class 'Common' not found
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Class 'Common' ...', 'C:\\Program File...', 6)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'Common' ...', 'C:\\Program File...', 6, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Class 'Common' ...', 'C:\\Program File...', 6, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 03:47:22 Error: Fatal Error (1): Class 'Common' not found in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller.php, line 6]
+2018-05-11 03:47:22 Error: [FatalErrorException] Class 'Common' not found
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Class 'Common' ...', 'C:\\Program File...', 6)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'Common' ...', 'C:\\Program File...', 6, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Class 'Common' ...', 'C:\\Program File...', 6, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 03:47:40 Error: Fatal Error (1): Class 'PhpExcelComponent' not found in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller.php, line 6]
+2018-05-11 03:47:40 Error: [FatalErrorException] Class 'PhpExcelComponent' not found
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Class 'PhpExcel...', 'C:\\Program File...', 6)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'PhpExcel...', 'C:\\Program File...', 6, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Class 'PhpExcel...', 'C:\\Program File...', 6, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 03:57:37 Error: Fatal Error (1): Call to a member function loadWorksheet() on null in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller.php, line 7]
+2018-05-11 03:57:37 Error: [FatalErrorException] Call to a member function loadWorksheet() on null
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\Program File...', 7)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\Program File...', 7, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\Program File...', 7, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 04:03:23 Error: Fatal Error (1): Call to undefined method ExportsController::loadWorksheet() in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller.php, line 7]
+2018-05-11 04:03:23 Error: [FatalErrorException] Call to undefined method ExportsController::loadWorksheet()
+Request URL: /plugins/admin/qlvb-admin-importExcel.php?ex=%2Fapp%2Fwebroot%2Fupload%2Fadmin%2Ffiles%2Fcn.xlsx
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\Program File...', 7)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\Program File...', 7, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\Program File...', 7, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-11 04:09:03 Error: [MongoException] Invalid object ID
+Request URL: /plugins/admin/qlvb-admin-dsUser.php?stt=1
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\function.php(120): MongoId->__construct('1')
+#1 C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\admin\dsUser.php(62): getPerById('1')
+#2 C:\Program Files (x86)\Ampps\www\qlvb\app\View\Plugins\admin.ctp(11): include('C:\\Program File...')
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\View\View.php(934): include('C:\\Program File...')
+#4 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\View\View.php(896): View->_evaluate('C:\\Program File...', Array)
+#5 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\View\View.php(465): View->_render('C:\\Program File...')
+#6 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#7 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#8 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(PluginsController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\Program Files (x86)\Ampps\www\qlvb\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2018-05-11 04:27:00 Error: [MongoException] Invalid object ID
+Request URL: /plugins/admin/qlvb-admin-dsUser.php?stt=1
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\function.php(120): MongoId->__construct('1')
+#1 C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\admin\dsUser.php(62): getPerById('1')
+#2 C:\Program Files (x86)\Ampps\www\qlvb\app\View\Plugins\admin.ctp(11): include('C:\\Program File...')
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\View\View.php(934): include('C:\\Program File...')
+#4 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\View\View.php(896): View->_evaluate('C:\\Program File...', Array)
+#5 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\View\View.php(465): View->_render('C:\\Program File...')
+#6 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#7 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#8 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(PluginsController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\Program Files (x86)\Ampps\www\qlvb\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2018-05-11 04:31:54 Error: [MongoException] Invalid object ID
+Request URL: /plugins/admin/qlvb-admin-taoNgDung.php
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller\Nguoidung.php(40): MongoId->__construct('')
+#1 C:\Program Files (x86)\Ampps\www\qlvb\app\Controller\PluginsController.php(69): taoNgDung(Array)
+#2 [internal function]: PluginsController->admin('qlvb-admin-taoN...')
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PluginsController), Array)
+#4 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#5 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(PluginsController), Object(CakeRequest), Object(CakeResponse))
+#6 C:\Program Files (x86)\Ampps\www\qlvb\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2018-05-11 04:33:35 Error: [MongoException] Invalid object ID
+Request URL: /plugins/admin/qlvb-admin-taoNgDung.php
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller\Nguoidung.php(40): MongoId->__construct('')
+#1 C:\Program Files (x86)\Ampps\www\qlvb\app\Controller\PluginsController.php(69): taoNgDung(Array)
+#2 [internal function]: PluginsController->admin('qlvb-admin-taoN...')
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PluginsController), Array)
+#4 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#5 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(PluginsController), Object(CakeRequest), Object(CakeResponse))
+#6 C:\Program Files (x86)\Ampps\www\qlvb\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2018-05-14 07:17:16 Error: [MissingViewException] View file "C:\Program Files (x86)\Ampps\www\qlvb\app\View\Options\change_theme.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\Program Files (x86)\\Ampps\\www\\qlvb\\app\\View\\Options\\change_theme.ctp',
+)
+Request URL: /options/changeTheme
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(OptionsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Program Files (x86)\Ampps\www\qlvb\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2018-05-14 07:17:21 Error: [MissingViewException] View file "C:\Program Files (x86)\Ampps\www\qlvb\app\View\Options\change_theme.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\Program Files (x86)\\Ampps\\www\\qlvb\\app\\View\\Options\\change_theme.ctp',
+)
+Request URL: /options/changeTheme
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Controller\Controller.php(954): View->render(NULL, NULL)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(OptionsController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\Program Files (x86)\Ampps\www\qlvb\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2018-05-15 09:21:36 Error: [MongoException] Cannot run command count(): $or must be an array
+Request URL: /plugins/admin/qlvb-admin-dsKhoa.php
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\Mongodb\Model\Datasource\MongodbSource.php(1065): MongoCursor->count(true)
+#1 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Model\Model.php(2903): MongodbSource->read(Object(Khoa), Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Model\Model.php(2875): Model->_readDataSource('all', Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\model.php(59): Model->find('all', Array)
+#4 C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller\Khoa.php(9): Khoa->getList()
+#5 C:\Program Files (x86)\Ampps\www\qlvb\app\Controller\PluginsController.php(69): dsKhoa(Array)
+#6 [internal function]: PluginsController->admin('qlvb-admin-dsKh...')
+#7 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PluginsController), Array)
+#8 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#9 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(PluginsController), Object(CakeRequest), Object(CakeResponse))
+#10 C:\Program Files (x86)\Ampps\www\qlvb\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2018-05-15 09:22:38 Error: [MongoException] Cannot run command count(): $or must be an array
+Request URL: /plugins/admin/qlvb-admin-dsKhoa.php
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\Mongodb\Model\Datasource\MongodbSource.php(1065): MongoCursor->count(true)
+#1 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Model\Model.php(2903): MongodbSource->read(Object(Khoa), Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Model\Model.php(2875): Model->_readDataSource('all', Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\model.php(59): Model->find('all', Array)
+#4 C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller\Khoa.php(9): Khoa->getList()
+#5 C:\Program Files (x86)\Ampps\www\qlvb\app\Controller\PluginsController.php(69): dsKhoa(Array)
+#6 [internal function]: PluginsController->admin('qlvb-admin-dsKh...')
+#7 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PluginsController), Array)
+#8 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#9 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(PluginsController), Object(CakeRequest), Object(CakeResponse))
+#10 C:\Program Files (x86)\Ampps\www\qlvb\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2018-05-15 09:22:48 Error: [MongoException] Cannot run command count(): $or must be an array
+Request URL: /plugins/admin/qlvb-admin-dsKhoa.php
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\Mongodb\Model\Datasource\MongodbSource.php(1065): MongoCursor->count(true)
+#1 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Model\Model.php(2903): MongodbSource->read(Object(Khoa), Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Model\Model.php(2875): Model->_readDataSource('all', Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\model.php(59): Model->find('all', Array)
+#4 C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller\Khoa.php(9): Khoa->getList()
+#5 C:\Program Files (x86)\Ampps\www\qlvb\app\Controller\PluginsController.php(69): dsKhoa(Array)
+#6 [internal function]: PluginsController->admin('qlvb-admin-dsKh...')
+#7 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PluginsController), Array)
+#8 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#9 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(PluginsController), Object(CakeRequest), Object(CakeResponse))
+#10 C:\Program Files (x86)\Ampps\www\qlvb\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2018-05-16 07:23:57 Error: Fatal Error (1): Call to a member function getList() on null in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller\Vanbang.php, line 37]
+2018-05-16 07:23:57 Error: [FatalErrorException] Call to a member function getList() on null
+Request URL: /plugins/admin/qlvb-admin-dsThongkeVB.php
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\Program File...', 37)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\Program File...', 37, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\Program File...', 37, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-16 07:45:19 Error: Fatal Error (1): Call to a member function getList() on null in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller\Vanbang.php, line 37]
+2018-05-16 07:45:19 Error: [FatalErrorException] Call to a member function getList() on null
+Request URL: /plugins/admin/qlvb-admin-dsThongkeVB.php
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\Program File...', 37)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\Program File...', 37, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\Program File...', 37, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-16 08:16:30 Error: Fatal Error (1): Call to a member function redirect() on null in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller.php, line 216]
+2018-05-16 08:16:30 Error: [FatalErrorException] Call to a member function redirect() on null
+Request URL: /dashboard
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\Program File...', 216)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\Program File...', 216, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\Program File...', 216, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-22 02:44:08 Error: Fatal Error (1): Call to a member function find() on null in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller\Sinhvien.php, line 61]
+2018-05-22 02:44:08 Error: [FatalErrorException] Call to a member function find() on null
+Request URL: /plugins/admin/qlvb-admin-dsSinhVien.php
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\Program File...', 61)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\Program File...', 61, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\Program File...', 61, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-28 05:07:33 Error: [MongoException] Invalid object ID
+Request URL: /dashboard?id_khoa=5afc27b7d3c70c9c1a000029&id_nganh=5afc27ffd3c70c9c1a00002b&id_kh=5afc2ce4d3c70c9c1a00002e&idLop=5afc2dd5d3c70cec14000029&sohieu=111&sovaoso=1111&ngaycap=&loai=V%C4%83n+b%E1%BA%B1ng-5afc400ad3c70cbc23000029
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\model.php(287): MongoId->__construct('V\xC4\x83n b\xE1\xBA\xB1ng-5af...')
+#1 C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller.php(477): Loai->getDataById('V\xC4\x83n b\xE1\xBA\xB1ng-5af...')
+#2 C:\Program Files (x86)\Ampps\www\qlvb\app\Controller\PluginsController.php(225): dashboard(Array)
+#3 [internal function]: PluginsController->index('dashboard')
+#4 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PluginsController), Array)
+#5 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#6 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(PluginsController), Object(CakeRequest), Object(CakeResponse))
+#7 C:\Program Files (x86)\Ampps\www\qlvb\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2018-05-28 08:12:20 Error: Fatal Error (1): Call to a member function getList() on null in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller\Vanbang.php, line 448]
+2018-05-28 08:12:20 Error: [FatalErrorException] Call to a member function getList() on null
+Request URL: /plugins/admin/qlvb-admin-editVB.php?id=5aff0a7bd3c70cb41c000032
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\Program File...', 448)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\Program File...', 448, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\Program File...', 448, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-28 08:12:31 Error: Fatal Error (1): Call to a member function getList() on null in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller\Vanbang.php, line 448]
+2018-05-28 08:12:31 Error: [FatalErrorException] Call to a member function getList() on null
+Request URL: /plugins/admin/qlvb-admin-editVB.php?id=5aff0a7bd3c70cb41c00002f
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\Program File...', 448)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\Program File...', 448, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\Program File...', 448, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-28 08:12:38 Error: Fatal Error (1): Call to a member function getList() on null in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\controller\Vanbang.php, line 448]
+2018-05-28 08:12:38 Error: [FatalErrorException] Call to a member function getList() on null
+Request URL: /plugins/admin/qlvb-admin-editVB.php?id=5aff0a7bd3c70cb41c000032
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\\Program File...', 448)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\\Program File...', 448, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\\Program File...', 448, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-28 08:17:22 Error: Fatal Error (4): syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in [C:\Program Files (x86)\Ampps\www\qlvb\app\Plugin\qlvb\admin\editVB.php, line 37]
+2018-05-28 08:17:22 Error: [FatalErrorException] syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING)
+Request URL: /plugins/admin/qlvb-admin-editVB.php?id=5aff0a7bd3c70cb41c000032
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\Program File...', 37)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\Program File...', 37, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\Program File...', 37, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-06-27 07:19:53 Error: Fatal Error (4): syntax error, unexpected '}', expecting ',' or ';' in [C:\Program Files (x86)\Ampps\www\qlvb\app\Theme\qlvbcc\login.php, line 33]
+2018-06-27 07:19:53 Error: [FatalErrorException] syntax error, unexpected '}', expecting ',' or ';'
+Request URL: /login?error=1
+Stack Trace:
+#0 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\Program File...', 33)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\Program File...', 33, Array)
+#2 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\Program File...', 33, Array)
+#3 C:\Program Files (x86)\Ampps\www\qlvb\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
