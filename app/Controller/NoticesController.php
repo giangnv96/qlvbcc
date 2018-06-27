@@ -60,7 +60,7 @@
                 }
 				
 				$totalData= $this->Notice->find('count',array('conditions' => $dk));
-				$urlNow= $this->curPageURL(1);
+				$urlNow= curPageURL(1);
 		
 				$balance= $totalData%$limit;
 				$totalPage= ($totalData-$balance)/$limit;
@@ -78,7 +78,7 @@
 				}
 
 				if(strpos($urlPage,'?')!== false){
-					if(count($_GET)>=1){
+					if(count($_GET)>1 ||  (count($_GET)==1 && !isset($_GET['page']))){
 						$urlPage= $urlPage.'&page=';
 					}else{
 						$urlPage= $urlPage.'page=';
@@ -148,8 +148,16 @@
            if($id != "")
            {
            	 Controller::loadModel('Notice');
+           	 Controller::loadModel('Slug');
+
              $id= new MongoId($id);
-             $this->Notice->delete($id);
+             $data= $this->Notice->find('first',array('conditions'=>array('_id'=>$id)));
+              if($data){
+                $this->Slug->deleteSlug($data['Notice']['slug']);
+                $this->Notice->delete($id);
+              }
+              
+             
            }
 
          }
@@ -188,13 +196,16 @@
              {
 
               Controller::loadModel('Notice');
+              //Controller::loadModel('Slug');
 
               $key= trim($dataSend['key']);
 
               $image= trim($dataSend['image']);
 
               $content= trim($dataSend['content']);
+              $content= str_replace('><br></', '></', $content);
               $slug= createSlugMantan(trim($dataSend['title']));
+              //$slug= $this->Slug->saveSlug($slug,'notices','index');
 	
 	          $chuyenmucAll= $this->Option->getOption('categoryNotice');
 
@@ -316,13 +327,17 @@
 	         if($title != "")
 	         {
 		      Controller::loadModel('Notice');
+		      //Controller::loadModel('Slug');
+
               $key= trim($dataSend['key']);
               $author= trim($dataSend['author']);
               $content= trim($dataSend['content']);
+              $content= str_replace('><br></', '></', $content);
               $slug= createSlugMantan(trim($dataSend['title']));
               $id= trim($dataSend['id']);
               $image= trim($dataSend['image']);
 			  $introductory= trim($dataSend['introductory']);
+			  //$slug= $this->Slug->saveSlug($slug,'notices','index');
 
               if($id=="") $id= null;
 			  
@@ -349,7 +364,7 @@
          }
        }
 // Page - Post
-	function index($slug)
+	function index($slug='')
 	{
 		global $infoNotice;
 		//Configure::write('debug', 2);
@@ -359,6 +374,7 @@
 		$this->layout='default';
 		$urlLocal= $this->getUrlLocal();
 		
+		if(empty($slug)) $slug= $this->request->url;
 		$slug= str_replace('.html', '', $slug);
 		$infoNotice= $this->Notice->getSlugNotice($slug);
 		
@@ -367,9 +383,12 @@
 			$this->set('infoNotice', $infoNotice);
 			if(isset($infoNotice['Notice']['category']) && count($infoNotice['Notice']['category'])>0) {
 				$otherNotices = $this->Notice->getOtherNotice($infoNotice['Notice']['category'], 5);
-				$this->set('otherNotices', $otherNotices);
+				
+			}else{
+				$otherNotices = $this->Notice->getOtherPageNotice(5);
 			}
-			
+			$this->set('otherNotices', $otherNotices);
+
 			global $isPost;
 			global $isPage;
 			
@@ -406,7 +425,7 @@
 		}
 	}     
 // Page Category	
-	function cat($slug)
+	function cat($slug=null)
 	{
 		//Configure::write('debug', 2);
 		global $categoryNotice;
@@ -422,7 +441,7 @@
 		Controller::loadModel('Option');
 		
 		$urlLocal= $this->getUrlLocal();
-		
+		if(empty($slug)) $slug= $this->request->url;
 		$slug= str_replace('.html', '', $slug);
 		$category= $this->Option->getOption('categoryNotice');
 		
@@ -430,7 +449,7 @@
 		
 		if($category)
 		{
-			$dk = array ('category' => $category['id']);
+			$dk = array ('category' => (int)$category['id']);
 			$today= getdate();
 			$dk['time']= array('$lte' => $today[0]);
 			
@@ -439,11 +458,11 @@
 			$limit= $infoSite['Option']['value']['postsOnThePage'];
 			$order=array('time'=>'desc','created' => 'desc','title'=>'asc');
 			$checkTime= true;
-			
+
 			$return = $this->Notice->getPageData($page,$limit,$dk,$order,$checkTime);
 			
 			$totalData= $this->Notice->find('count',array('conditions' => $dk));
-			$urlNow= $this->curPageURL(1);
+			$urlNow= curPageURL(1);
 	
 			$balance= $totalData%$limit;
 			$totalPage= ($totalData-$balance)/$limit;
@@ -461,7 +480,7 @@
 			}
 
 			if(strpos($urlPage,'?')!== false){
-				if(count($_GET)>=1){
+				if(count($_GET)>1 ||  (count($_GET)==1 && !isset($_GET['page']))){
 					$urlPage= $urlPage.'&page=';
 				}else{
 					$urlPage= $urlPage.'page=';
@@ -511,7 +530,7 @@
 		
 		if(!isset($_GET['key'])) $_GET['key']= '';
 		
-		$conditions['$or'][0]['title']= array('$regex' => $_GET['key']);
+		$conditions['$or'][0]['slug']= array('$regex' => createSlugMantan($_GET['key']));
 		$conditions['$or'][1]['key']= array('$regex' => $_GET['key']);
 		$conditions['$or'][2]['content']= array('$regex' => $_GET['key']);
 		
@@ -527,7 +546,7 @@
 		$return = $this->Notice->getPageData($page,$limit,$conditions,$order,$checkTime);
 		
 		$totalData= $this->Notice->find('count',array('conditions' => $conditions));
-		$urlNow= $this->curPageURL(1);
+		$urlNow=curPageURL(1);
 
 		$balance= $totalData%$limit;
 		$totalPage= ($totalData-$balance)/$limit;
@@ -545,7 +564,7 @@
 		}
 
 		if(strpos($urlPage,'?')!== false){
-			if(count($_GET)>=1){
+			if(count($_GET)>1 ||  (count($_GET)==1 && !isset($_GET['page']))){
 				$urlPage= $urlPage.'&page=';
 			}else{
 				$urlPage= $urlPage.'page=';

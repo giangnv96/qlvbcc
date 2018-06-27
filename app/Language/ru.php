@@ -32,6 +32,7 @@
 	$languageMantan['domainName']= 'Доменное имя';
 	$languageMantan['edit']= 'редактируете';
 	$languageMantan['email']= 'Email';
+	$languageMantan['embedScript']= 'код для вставки script';
 	$languageMantan['enterTheNewPassword']= 'Введите новый пароль';
 	$languageMantan['event']= 'событие';
 	$languageMantan['expand']= 'расширение';

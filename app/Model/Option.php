@@ -129,27 +129,23 @@
 	   function saveCategoryNotice($slug,$idCatEdit,$name,$parent,$key,$description,$image)
 	   {
 	   		$dk = array ('key' => 'categoryNotice');
+	   		$modelSlug= ClassRegistry::init('Slug');
 
             $groups= $this -> find('first', array('conditions' => $dk) );
 	   		if(!$groups) 
             {
          	  $groups['Option']['key']= 'categoryNotice';
             }
-            
-            $number= $this->getNumberSlugCategory($groups['Option']['value']['category'],$slug,0);
-	   		$slugStart= $slug;
-	   		if($number>0)
-	   		{
-		   		$slug= $slug.'-'.$number;
-	   		}
 	   		
 			if($idCatEdit=='')
 			{
 				$groups['Option']['value']['tCategory']+= 1;
+				$infoSlug= $modelSlug->saveSlug($slug,'','notices','cat');
 				$save= array(
 								'name'=>$name,
 								'id'=>$groups['Option']['value']['tCategory'],
-								'slug'=>$slug,
+								'slug'=>$infoSlug['slug'],
+								'idSlug'=>$infoSlug['idSlug'],
 								'key'=>$key,
 								'description'=>$description,
                                 'image' => $image						
@@ -171,12 +167,10 @@
 				$cats= $this->getcat($groups['Option']['value']['category'],$idCatEdit);
 				if($cats)
 				{
+					$infoSlug= $modelSlug->saveSlug($slug,$cats['idSlug'],'notices','cat');
 					//debug('da vao');
-					if($cats['slug']!=$slugStart)
-					{
-						$cats['slug']= $slug;
-					}
-					
+					$cats['slug']= $infoSlug['slug'];
+					$cats['idSlug']= $infoSlug['idSlug'];
 					$cats['name']= $name;
 					$cats['key']= $key;
 					$cats['description']= $description;
@@ -515,6 +509,7 @@
      	 $groupsInfoSite['Option']['value']['description']= $data['description'];
 		 $groupsInfoSite['Option']['value']['postsOnThePage']= (trim($data['postsOnThePage'])!='')? (int) $data['postsOnThePage']:10;
 		 $groupsInfoSite['Option']['value']['seoURL']= $data['seoURL'];
+		 $groupsInfoSite['Option']['value']['embedScript']= $data['embedScript'];
          
 		 $this->create();
 		 $this->save($groupsInfoSite);
@@ -536,10 +531,17 @@
          
          $groupsSMTP['Option']['key']= 'smtpSetting';
          $groupsSMTP['Option']['value']['account']= $data['account'];
-         $groupsSMTP['Option']['value']['password']= $data['password'];
          $groupsSMTP['Option']['value']['show']= $data['show'];
          $groupsSMTP['Option']['value']['host']= $data['host'];
 		 $groupsSMTP['Option']['value']['port']= $data['port'];
+		 $groupsSMTP['Option']['value']['password']= '';
+
+		 if(!empty($data['password'])){
+		 	$numberChar= strlen($data['password']);
+		 	for($i=1;$i<=$numberChar;$i++){
+		 		$groupsSMTP['Option']['value']['password'] .= '*';
+		 	}
+		 }
          
          $this->create();
 		 $this->save($groupsSMTP);

@@ -32,20 +32,7 @@
 
        function saveAlbumNew($time,$title,$image,$key,$slug,$lock,$id= null)
        {
-       	 $listSlug= array();
-       	 $number= 0;
-       	 $slugStart= $slug;
-       	 do
-       	 {
-       	 	 $number++;
-	       	 $listSlug= $this->find('all', array('conditions' => array('slug'=>$slug) ));
-			 if(count($listSlug)>0 && $listSlug[0]['Album']['id']!=$id)
-			 {
-			 	$slug= $slugStart.'-'.$number;
-	       	 }
-       	 } while (count($listSlug)>0 && $listSlug[0]['Album']['id']!=$id);
-       	 
-       	 
+        $modelSlug= ClassRegistry::init('Slug');
          if($id != null)
          {
             $id= new MongoId($id);
@@ -56,12 +43,17 @@
             $save['Album']['view']= 0;
             $save['Album']['_id']= new MongoId();
          }
+
+         if(!isset($save['Album']['idSlug'])) $save['Album']['idSlug']= '';
+         $infoSlug= $modelSlug->saveSlug($slug,$save['Album']['idSlug'],'albums','index');
+
          $save['Album']['title']= $title;
          $save['Album']['key']= $key;
          $save['Album']['img'][0]['src']= $image;
          $save['Album']['img'][0]['alt']= $title;
          $save['Album']['time']= $time;
-         $save['Album']['slug']= $slug;
+         $save['Album']['slug']= $infoSlug['slug'];
+         $save['Album']['idSlug']= $infoSlug['idSlug'];
          $save['Album']['lock']= $lock;
 
          $this->save($save);

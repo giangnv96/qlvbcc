@@ -166,6 +166,12 @@
 					<td align="right" ><?php echo $languageMantan['PostsOnThePage'];?></td>
 					<td align="left"><input class="form-control" type="text" value="<?php echo @$infoSite['Option']['value']['postsOnThePage'];?>" name="postsOnThePage" id="postsOnThePage" /></td>
 				  </tr>
+				  <tr>
+					<td align="right" ><?php echo $languageMantan['embedScript'];?></td>
+					<td align="left">
+						<textarea class="form-control" rows="5" name="embedScript" id="embedScript"><?php echo @$infoSite['Option']['value']['embedScript'];?></textarea>
+					</td>
+				  </tr>
 			  </table>
 			
 		  </div>

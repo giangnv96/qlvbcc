@@ -109,7 +109,7 @@
 									foreach($menus['sub'] as $menu)
 									{
 										if(!isset($menu['classIcon'])) $menu['classIcon']= 'fa-files-o fa-fw';
-										if(isset($userAdmins['Admin']['powers']) && in_array($menu['url'], $userAdmins['Admin']['powers']))
+										if(isset($userAdmins['Admin']['powers']) && in_array($menu['permission'], $userAdmins['Admin']['powers']))
 										{
 											if(!isset($menu['sub']) || count($menu['sub'])==0)
 											{
@@ -158,7 +158,7 @@
 										                        echo '<ul class="nav nav-second-level '.$classSub.'">';
 										                        foreach($menu['sub'] as $sub)
 										                        {
-										                        	if(in_array($sub['url'], $userAdmins['Admin']['powers']))
+										                        	if(in_array($sub['permission'], $userAdmins['Admin']['powers']))
 																	{
 											                        	if($urlNowLoction==$sub['url'])
 																		{

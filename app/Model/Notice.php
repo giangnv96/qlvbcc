@@ -3,7 +3,7 @@
    {
        var $name = 'Notice';
 
-       function getNewNotice($limit=5)
+       function getNewNotice($limit=5,$fields=null,$page=1)
        {
        	  $dk = array ( 'type'=> 'post' );
 		  $today= getdate();
@@ -11,12 +11,14 @@
        	  
           $notices = $this->find('all', array('order' => array('time'=>'DESC','created'=> 'DESC'),
                                               'limit' =>$limit,
-                                              'conditions' => $dk
+                                              'conditions' => $dk,
+                                              'fields'=>$fields,
+                                              'page'=>$page
                                             ));
           return $notices;
        }
        
-       function getTopEventNotice($limit=5)
+       function getTopEventNotice($limit=5,$fields=null,$page=1)
        {
     	  $dk = array ( 'type'=> 'post','event'=>1 );
 		  $today= getdate();
@@ -24,13 +26,14 @@
        	  
           $notices = $this->find('all', array('order' => array('time'=>'DESC','created'=> 'DESC'),
                                               'limit' =>$limit,
-                                              'conditions' => $dk
-
+                                              'conditions' => $dk,
+                                              'fields'=>$fields,
+                                              'page'=>$page
                                             ));
           return $notices;
        }
        
-       function getTopViewNotice($limit=5)
+       function getTopViewNotice($limit=5,$fields=null,$page=1)
        {
     	  $dk = array ( 'type'=> 'post' );
 		  $today= getdate();
@@ -38,13 +41,14 @@
        	  
           $notices = $this->find('all', array('order' => array('view'=>'DESC','time'=>'DESC','created'=> 'DESC'),
                                               'limit' =>$limit,
-                                              'conditions' => $dk
-
+                                              'conditions' => $dk,
+                                              'fields'=>$fields,
+                                              'page'=>1
                                             ));
           return $notices;
        }
 	   
-	   function getPageData($page=1,$limit=null,$conditions=array(),$order=array('time'=>'desc','created' => 'desc','title'=>'asc'),$checkTime= false)
+	   function getPageData($page=1,$limit=null,$conditions=array(),$order=array('time'=>'desc','created' => 'desc','title'=>'asc'),$checkTime= false,$fields=null)
        {
 		   if($checkTime){
 			  $today= getdate();
@@ -55,13 +59,14 @@
 	                        'limit' => $limit,
 	                        'page' => $page,
 	                        'order' => $order,
-	                        'conditions' => $conditions
-	
+	                        'conditions' => $conditions,
+	                         'fields'=>$fields
 	                    );
+         
 	       return $this -> find('all', $array);             
        }
        
-       function getAllPage()
+       function getAllPage($fields=null)
        {
 	       $dk = array ( 'type'=>'page' );
 	       $today= getdate();
@@ -69,41 +74,37 @@
        	  
            $notices = $this->find('all', array( 'order' => array('time'=>'DESC','created'=> 'DESC'),
                                              
-                                             	'conditions' => $dk
-
+                                             	'conditions' => $dk,
+                                              'fields'=>$fields
                                             ));
           return $notices;
        }
        
-       function savePages($slug,$author,$title,$key,$content,$image,$introductory,$time,$id)
+       function savePages($slug,$author,$title,$key,$content,$image,$introductory,$time,$id=null)
        {
-       		 $listSlug= array();
-	       	 $number= 0;
-	       	 $slugStart= $slug;
-	       	 do
-	       	 {
-	       	 	 $number++;
-		       	 $listSlug= $this->find('all', array('conditions' => array('slug'=>$slug) ));
-				 if(count($listSlug)>0 && $listSlug[0]['Notice']['id']!=$id)
-				 {
-				 	$slug= $slugStart.'-'.$number;
-		       	 }
-	       	 } while (count($listSlug)>0 && $listSlug[0]['Notice']['id']!=$id);
+       		 $modelSlug= ClassRegistry::init('Slug');
+
+         if($id != null)
+         {
+            $id= new MongoId($id);
+            $save= $this->getNotice($id);
+         }
+         else
+         {
+            $save['Notice']['view']= 0;
+            $save['Notice']['_id']= new MongoId();
+         }
+
+         if(!isset($save['Notice']['idSlug'])) $save['Notice']['idSlug']= '';
+         $infoSlug= $modelSlug->saveSlug($slug,$save['Notice']['idSlug'],'notices','index');
 	       	 
-	         if($id != null)
-	         {
-	            $id= new MongoId($id);
-	            $save= $this->getNotice($id);
-	         }
-	         else
-	         {
-	            $save['Notice']['view']= 0;
-	         }
+	        
 	         $save['Notice']['title']= $title;
 	         $save['Notice']['key']= $key;
 	         $save['Notice']['content']= $content;
 	         $save['Notice']['author']= $author;
-	         $save['Notice']['slug']= $slug;
+	         $save['Notice']['slug']= $infoSlug['slug'];
+         $save['Notice']['idSlug']= $infoSlug['idSlug'];
 	         $save['Notice']['type']= 'page';
 	         $save['Notice']['image']= $image;
 	         if($introductory!=''){
@@ -132,57 +133,53 @@
        function saveNotices($slug,$time,$author,$title,$key,$content,$category,$image,$event,$introductory,$id= null)
        {
        	 $listSlug= array();
-       	 $number= 0;
-       	 $slugStart= $slug;
-       	 do
-       	 {
-       	 	 $number++;
-	       	 $listSlug= $this->find('all', array('conditions' => array('slug'=>$slug) ));
-			 if(count($listSlug)>0 && $listSlug[0]['Notice']['id']!=$id)
-			 {
-			 	$slug= $slugStart.'-'.$number;
-	       	 }
-       	 } while (count($listSlug)>0 && $listSlug[0]['Notice']['id']!=$id);
+       	 $modelSlug= ClassRegistry::init('Slug');
+
+         if($id != null)
+         {
+            $id= new MongoId($id);
+            $save= $this->getNotice($id);
+         }
+         else
+         {
+            $save['Notice']['view']= 0;
+            $save['Notice']['_id']= new MongoId();
+         }
+
+         if(!isset($save['Notice']['idSlug'])) $save['Notice']['idSlug']= '';
+         $infoSlug= $modelSlug->saveSlug($slug,$save['Notice']['idSlug'],'notices','index');
        	 
        	 $save['Notice']['title']= $title;
-         $save['Notice']['slug']= $slug;
+         $save['Notice']['slug']= $infoSlug['slug'];
+         $save['Notice']['idSlug']= $infoSlug['idSlug'];
          $save['Notice']['key']= $key;
          $save['Notice']['content']= $content;
          $save['Notice']['category']= $category;
          $save['Notice']['image']= $image;
          $save['Notice']['event']= $event;
          $save['Notice']['author']= $author;    
-		 if($introductory!=''){
-			 $save['Notice']['introductory']= $introductory;
-		 }else{
-			 $save['Notice']['introductory']= $this->getIntroductory($content,30);
-		 }
+		 
+         if($introductory!=''){
+    			 $save['Notice']['introductory']= $introductory;
+    		 }else{
+    			 $save['Notice']['introductory']= $this->getIntroductory($content,30);
+    		 }
          
          $save['Notice']['time']= (int)$time;
          $save['Notice']['type']= 'post';
          
-         if($id != null)
-         {
-            $id= new MongoId($id);
-            $dk= array('_id'=>$id);
-            $this->updateAll($save['Notice'],$dk);
-         }
-         else
-         {
-            $save['Notice']['view']= 0;
-            $this->save($save);
-         }
+         $this->save($save);
          return 1;
        }
        
-       function getNotice($idNotice)
+       function getNotice($idNotice=null,$fields=null)
        {
          $dk = array ('_id' => $idNotice);
-         $notice = $this -> find('first', array('conditions' => $dk) );
+         $notice = $this -> find('first', array('conditions' => $dk,'fields'=>$fields) );
          return $notice;
        }
        
-       function getOtherNotice($category=array(),$limit=5,$conditions=array())
+       function getOtherNotice($category=array(),$limit=5,$conditions=array(),$page=1,$fields=null)
        {
        		 if(!$category) {
 	       		 $conditions['category']= null;
@@ -190,17 +187,25 @@
 	         	$conditions['category']= array('$in'=>$category);
 	         }
 			 
-			 $today= getdate();
-			 $conditions['time']= array('$lte' => $today[0]);
+			     $today= getdate();
+			     $conditions['time']= array('$lte' => $today[0]);
 			  
-	         $notice = $this -> find('all', array('conditions' => $conditions,'limit' =>$limit,'order' => array('time'=>'DESC','created'=> 'DESC')) );
+	         $notice = $this -> find('all', array('page'=>$page,'fields'=>$fields,'conditions' => $conditions,'limit' =>$limit,'order' => array('time'=>'DESC','created'=> 'DESC')) );
 	         return $notice;
        }
+
+       function getOtherPageNotice($limit=5,$conditions=array(),$page=1,$fields=null)
+       {
+          $conditions['type']= 'page';
+  
+           $notice = $this -> find('all', array('page'=>$page,'fields'=>$fields,'conditions' => $conditions,'limit' =>$limit,'order' => array('time'=>'DESC','created'=> 'DESC')) );
+           return $notice;
+       }
        
-       function getSlugNotice($slug)
+       function getSlugNotice($slug='',$fields=null)
        {
          $dk = array ('slug' => $slug);
-         $notice = $this -> find('first', array('conditions' => $dk) );
+         $notice = $this -> find('first', array('conditions' => $dk,'fields'=>$fields) );
          return $notice;
        }
 

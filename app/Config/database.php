@@ -1,1 +1,1 @@
-<?php class DATABASE_CONFIG {public $default = array("datasource" => "Mongodb.MongodbSource","host" => "localhost","database" => "qlvb","login" => "","password" => "","port" => 27017,"prefix" => "","persistent" => "true","encoding" => "utf8");}?>
+<?php class DATABASE_CONFIG {public $default = array("datasource" => "Mongodb.MongodbSource","host" => "localhost","database" => "","login" => "","password" => "","port" => 21080,"prefix" => "","persistent" => "true","encoding" => "utf8");}?>

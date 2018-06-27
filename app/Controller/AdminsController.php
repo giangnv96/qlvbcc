@@ -27,8 +27,9 @@
 
        		global $infoMantanSource;
 
-       		$webRoot= Router::url('/', true).'app/webroot';
-       		$infoMantanSource= @simplexml_load_file($webRoot.'/info.xml');
+       		$urlLocal= $this->getUrlLocal();
+
+       		$infoMantanSource= @simplexml_load_file($urlLocal['urlLocalWebroot'].'/info.xml');
 
        		if($this->isDBConnected())
        		{
@@ -52,8 +53,7 @@
 	            }
        		}
 			
-			$urlAdmins= Router::url('/', true).'admins/';
-			$this->set('urlAdmins',$urlAdmins);
+			$this->set('urlAdmins',$urlLocal['urlAdmins']);
 			$this->set('infoMantanSource',$infoMantanSource);
        }
        
@@ -86,15 +86,13 @@
        		
        		if($Passwd1==$Passwd2 && $database!='')
        		{
-	       		if(function_exists('apache_get_modules') && in_array('mod_rewrite', apache_get_modules()))
+	       		if(file_exists('../Config/database.php'))
 		        {
 		        	$urlLocalConfig= '../Config/';
-		        }
-		        else
-		        {
+		        }else{
 			        $urlLocalConfig= 'app/Config/';
 		        }
-		        
+
 		        $string= '<?php class DATABASE_CONFIG {public $default = array("datasource" => "Mongodb.MongodbSource","host" => "'.$databaseHost.'","database" => "'.$database.'","login" => "'.$databaseUser.'","password" => "'.$databasePassword.'","port" => '.$databasePort.',"prefix" => "","persistent" => "true","encoding" => "utf8");}?>';
 		        $file = fopen($urlLocalConfig.'database.php','w');
 		        fwrite($file,$string);
@@ -120,22 +118,7 @@
 		       Controller::loadModel('Admin');
 		       $url= $this->getUrlLocal();
 		       
-		       $powers= array($url['urlOptions'].'infoSite',
-		       				  $url['urlNotices'].'listNotices',
-		       				  $url['urlOptions'].'categoryNotice',
-		       				  $url['urlNotices'].'listPages',
-		       				  $url['urlAlbums'].'listAlbums',
-		       				  $url['urlVideos'].'listVideos',
-		       				  $url['urlAdmins'].'listFiles',
-		       				  $url['urlOptions'].'languages',
-		       				  $url['urlOptions'].'themes',
-		       				  $url['urlOptions'].'menus',
-		       				  $url['urlOptions'].'plugins',
-		       				  $url['urlOptions'].'sitemap',
-		       				  $url['urlAdmins'].'listAccount',
-							  $url['urlUsers'].'listUser',
-		       				  $url['urlAdmins'].'logout'
-		       				 );
+		       $powers= array('infoSite','listNotices','categoryNotice','listPages','listAlbums','listVideos','listFiles','languages','themes','menus','plugins','sitemap','listAccount','listUser','logout');
 		       
 		       $this->Admin->saveAdmin($user,$pass,$powers);
 		       
@@ -191,7 +174,8 @@
 		 	{
 			 	$urlBase= substr_replace($urlBase, '', -10);  
 		 	}
-		 	$rootUpload=$urlBase.'app/webroot/upload/';
+		 	//$rootUpload=$this->webroot.'upload/';
+		 	$rootUpload=$this->webroot.'app/webroot/upload/';
          	$this->Session->write('urlBaseUpload',$rootUpload.$users['Admin']['user'].'/');
          	//
             $this->redirect($urlLocal['urlAdmins']);

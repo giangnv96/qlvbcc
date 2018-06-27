@@ -22,26 +22,6 @@
 				}
 			}); 
 	    }
-	
-	    function createSlug(idSlug,idTitle)
-		{
-		  var str= document.getElementById(idTitle).value;
-		  str = str.replace(/^\s+|\s+$/g, ''); // trim
-		  str = str.toLowerCase();
-		
-		  // remove accents, swap ñ for n, etc
-		  var from = "đuúùũụủưứừữựửeéèẽẹẻêếềễệểoóòõọỏôồốỗộổơớờỡợởaàáãạảăằắặẵẳâấầậẫẩiíìĩịỉyýỳỹỵỷ·/_,:;&";
-		  var to   = "duuuuuuuuuuuueeeeeeeeeeeeooooooooooooooooooaaaaaaaaaaaaaaaaaaiiiiiiyyyyyy-------";
-		  for (var i=0, l=from.length ; i<l ; i++) {
-		    str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
-		  }
-		
-		  str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
-		    .replace(/\s+/g, '-') // collapse whitespace and replace by -
-		    .replace(/-+/g, '-'); // collapse dashes
-		
-		  document.getElementById(idSlug).value= str;
-		}
 		
 		function editAlbum(idAlbum)
 		{
@@ -178,7 +158,7 @@
 	                      <img class="thumbImage" src="<?php echo $tin['Album']['img'][0]['src'];?>">
                       </td>
                       <td>
-	                      <?php echo $tin['Album']['title'];?>
+                      		<a href="<?php echo getUrlAlbum($tin['Album']['id'],$tin['Album']['slug']);?>" target="_blank"><?php echo $tin['Album']['title'];?></a>
                       </td>
                       <td>
 	                      <input class="btn btn-default" type="button" value="<?php echo $languageMantan['edit'].' '.$languageMantan['information'];?>" onclick="editAlbum('<?php echo $tin['Album']['id'];?>');" />
@@ -217,11 +197,10 @@
 	<div id="themData">
 	    <form action="<?php echo $urlAlbums;?>saveAlbum" method="post" name="dangtin" >
 	        <input type="hidden" value="" name="id" />
-	        <input type="hidden" value="" name="slug" id="slug" />
 	        <table class="table table-striped">
 	            <tr>
 	                <td><?php echo $languageMantan['nameAlbum'];?> (*)</td>
-	                <td><input required="" type="text" onkeyup="createSlug('slug','title');" onchange="createSlug('slug','title');" name="title" id='title' value="" class="form-control" /></td>
+	                <td><input required="" type="text"  name="title" id='title' value="" class="form-control" /></td>
 	            </tr>
 	            <tr>
 	                <td><?php echo $languageMantan['ilustration'];?> (*)</td>

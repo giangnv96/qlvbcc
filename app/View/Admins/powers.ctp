@@ -67,24 +67,24 @@
 									if(!isset($menu['sub']) || count($menu['sub'])==0)
 									{
 										$checked='';
-										if(isset($account['Admin']['powers']) && in_array($menu['url'], $account['Admin']['powers'])) $checked= 'checked';
+										if(isset($account['Admin']['powers']) && in_array($menu['permission'], $account['Admin']['powers'])) $checked= 'checked';
 										echo '  <li>
-													<input type="checkbox" '.$checked.' value="'.$menu['url'].'" name="check_list[]" /> '.$menu['name'].'
+													<input type="checkbox" '.$checked.' value="'.$menu['permission'].'" name="check_list[]" /> '.$menu['name'].'
 							                    </li>';
 									}
 									else
 									{
 										$checked='';
-										if(isset($account['Admin']['powers']) && in_array($menu['url'], $account['Admin']['powers'])) $checked= 'checked';
+										if(isset($account['Admin']['powers']) && in_array($menu['permission'], $account['Admin']['powers'])) $checked= 'checked';
 										echo ' <li>
-							                        <input '.$checked.' type="checkbox" value="'.$menu['url'].'" name="check_list[]" /> '.$menu['name'].'
+							                        <input '.$checked.' type="checkbox" value="'.$menu['permission'].'" name="check_list[]" /> '.$menu['name'].'
 							                        <ul style="margin-left: 20px;list-style: none outside none;padding:0;">';
 							                        foreach($menu['sub'] as $sub)
 							                        {
 							                        	$checked='';
-														if(isset($account['Admin']['powers']) && in_array($sub['url'], $account['Admin']['powers'])) $checked= 'checked';
+														if(isset($account['Admin']['powers']) && in_array($sub['permission'], $account['Admin']['powers'])) $checked= 'checked';
 							                        	echo '  <li>
-									                                <input '.$checked.' type="checkbox" value="'.$sub['url'].'" name="check_list[]" /> '.$sub['name'].'
+									                                <input '.$checked.' type="checkbox" value="'.$sub['permission'].'" name="check_list[]" /> '.$sub['name'].'
 									                            </li>';
 							                        }
 							            echo        '</ul>

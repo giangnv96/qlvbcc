@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?php echo $this->webroot;?>images/favicon.png" type="image/ico" rel="icon">
-    <title>Mantan <?php echo $infoMantanSource->verName;?></title>
+    <title>Mantan <?php echo @$infoMantanSource->verName;?></title>
 
     <!-- Core CSS - Include with every page -->
     <link href="<?php echo $this->webroot;?>css/bootstrap.min.css" rel="stylesheet">

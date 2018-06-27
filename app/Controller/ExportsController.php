@@ -4,7 +4,7 @@ class ExportsController extends AppController {
     // load the PhpExcel component - case is important
     public $components = array('PhpExcel.PhpExcel');
 
-    function excel($table=array(),$data=array()) {
+    function excel($table=array(),$data=array(),$name='') {
         $this->PhpExcel->createWorksheet()->setDefaultFont('Calibri', 12);
         
         /*
@@ -29,7 +29,9 @@ class ExportsController extends AppController {
         }
         
         // close table and output
-        $this->PhpExcel->addTableFooter()->output();
+        ob_end_clean();
+        $fileName= (!empty($name))?$name.'.xlsx':time().'.xlsx';
+        $this->PhpExcel->addTableFooter()->output($fileName);
     }
 
 }

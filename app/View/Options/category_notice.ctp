@@ -36,7 +36,7 @@
 				echo '&nbsp&nbsp&nbsp&nbsp';
 			}
 			?>
-			<img src="<?php echo $webRoot;?>images/bg-list-item.png" />&nbsp&nbsp<a href="<?php echo getUrlNoticeCategory($cat['id'],$cat['slug']);?>"><span id="content<?php echo $cat['id'];?>"><?php echo $cat['name'];?></span></a>
+			<img src="<?php echo $webRoot;?>images/bg-list-item.png" />&nbsp&nbsp<a target="_blank" href="<?php echo getUrlNoticeCategory($cat['id'],$cat['slug']);?>"><span id="content<?php echo $cat['id'];?>"><?php echo $cat['name'];?></span></a>
 			
 			</p>
 			</td>
@@ -63,7 +63,7 @@
 			<td align="center">
 				<input class="input" type="button" value="<?php echo $languageMantan['edit'];?>" onclick="suaData('<?php echo @$cat['id'];?>','<?php echo @$cat['image'];?>');">
 				&nbsp;&nbsp;
-				<input class="input" type="button" value="<?php echo $languageMantan['delete'];?>" onclick="deleteData('<?php echo $cat['id'];?>');">
+				<input class="input" type="button" value="<?php echo $languageMantan['delete'];?>" onclick="deleteData('<?php echo $cat['id'];?>','<?php echo $cat['slug'];?>');">
 			</td>
 			</tr>
 			<?php
@@ -201,7 +201,7 @@ function suaData(idCat,image)
 
 
 
-function deleteData(idDelete)
+function deleteData(idDelete,slugDelete)
 {
     var check= confirm('<?php echo $languageMantan['areYouSureYouWantToRemove'];?>');
 	if(check)
@@ -209,7 +209,7 @@ function deleteData(idDelete)
 		$.ajax({
 	      type: "POST",
 	      url: urlWeb+"deleteCatagery",
-	      data: { idDelete:idDelete}
+	      data: { idDelete:idDelete,slugDelete:slugDelete}
 	    }).done(function( msg ) { 	
 		  		window.location= urlWeb+"categoryNotice";	
 		 })

@@ -176,12 +176,13 @@ function mantan_header()
 {
 	global $checkMantanHeader;
 	global $infoMantanSource;
+	global $infoSite;
 	$checkMantanHeader= true;
 	if(!isset($infoMantanSource['verName'])) $infoMantanSource['verName']= 'v1.6';
 	echo '  <meta name="generator" content="Mantan '.$infoMantanSource['verName'].'" />
 			<meta name="application-name" content="Mantan '.$infoMantanSource['verName'].'">
 			<meta name="Publisher" CONTENT="Mantan '.$infoMantanSource['verName'].'">
-	';
+	'.@$infoSite['Option']['value']['embedScript'];
 }	
 
 function showErrorMantanHeader()
@@ -254,13 +255,14 @@ function changeNoticeCategoryToList($category,$parent=0)
 {
 	foreach($category as $key=>$cat)
     {
-    	$category[$key]= array  ( 'id' => $cat['id'],
-    							  'name' => $cat['name'],
-						    	  'slug' => $cat['slug'],
-						    	  'key' => $cat['key'],
-						    	  'description' => $cat['description'],
+    	$category[$key]= array  ( 'id' => @$cat['id'],
+    							  'name' => @$cat['name'],
+						    	  'slug' => @$cat['slug'],
+						    	  'key' => @$cat['key'],
+						    	  'description' => @$cat['description'],
     							  'url' => getUrlNoticeCategory($cat['id'],$cat['slug']),
 							      'parent' => $parent,
+							      'image' => @$cat['image']
 							    );
 	    if(isset($cat['sub']) && count($cat['sub'])>0)
 	    {
@@ -277,11 +279,13 @@ function getUrlNotice($id='',$slug='')
 	global $infoSite;
 	
 	if($slug!=''){
-		return $urlHomes.$infoSite['Option']['value']['seoURL']['notices'].'/'.$slug.'.html';
+		//return $urlHomes.$infoSite['Option']['value']['seoURL']['notices'].'/'.$slug.'.html';
+		return $urlHomes.$slug.'.html';
 	}elseif($id!=''){
 		$id= new MongoId($id);
 		$data= $modelNotice->getNotice($id);
-		return $urlHomes.$infoSite['Option']['value']['seoURL']['notices'].'/'.$data['Notice']['slug'].'.html';
+		//return $urlHomes.$infoSite['Option']['value']['seoURL']['notices'].'/'.$data['Notice']['slug'].'.html';
+		return $urlHomes.$data['Notice']['slug'].'.html';
 	}else{
 		return $urlHomes.$infoSite['Option']['value']['seoURL']['notices'].'/';
 	}
@@ -295,13 +299,16 @@ function getUrlNoticeCategory($id='',$slug='')
 	global $infoSite;
 	
 	if($slug!=''){
-		return $urlHomes.$infoSite['Option']['value']['seoURL']['notices'].'/'.$infoSite['Option']['value']['seoURL']['cat'].'/'.$slug.'.html';
+		//return $urlHomes.$infoSite['Option']['value']['seoURL']['notices'].'/'.$infoSite['Option']['value']['seoURL']['cat'].'/'.$slug.'.html';
+		return $urlHomes.$slug.'.html';
 	}elseif($id!=''){
 		$id= (int) $id;
 		$category= $modelOption->getOption('categoryNotice');
 		$category= $modelOption->getcat($category['Option']['value']['category'],$id);
 		
-		return $urlHomes.$infoSite['Option']['value']['seoURL']['notices'].'/'.$infoSite['Option']['value']['seoURL']['cat'].'/'.$category['slug'].'.html';
+		//return $urlHomes.$infoSite['Option']['value']['seoURL']['notices'].'/'.$infoSite['Option']['value']['seoURL']['cat'].'/'.$category['slug'].'.html';
+		return $urlHomes.$category['slug'].'.html';
+	
 	}else{
 		return $urlHomes.$infoSite['Option']['value']['seoURL']['notices'].'/'.$infoSite['Option']['value']['seoURL']['cat'].'/';
 	}
@@ -314,11 +321,13 @@ function getUrlAlbum($id='',$slug='')
 	global $infoSite;
 	
 	if($slug!=''){
-		return $urlHomes.$infoSite['Option']['value']['seoURL']['albums'].'/'.$slug.'.html';
+		//return $urlHomes.$infoSite['Option']['value']['seoURL']['albums'].'/'.$slug.'.html';
+		return $urlHomes.$slug.'.html';
 	}elseif($id!=''){
 		$id= new MongoId($id);
 		$data= $modelAlbum->getAlbum($id);
-		return $urlHomes.$infoSite['Option']['value']['seoURL']['albums'].'/'.$data['Album']['slug'].'.html';
+		//return $urlHomes.$infoSite['Option']['value']['seoURL']['albums'].'/'.$data['Album']['slug'].'.html';
+		return $urlHomes.$data['Album']['slug'].'.html';
 	}else{
 		return $urlHomes.$infoSite['Option']['value']['seoURL']['albums'].'/';
 	}
@@ -345,11 +354,13 @@ function getUrlVideo($id='',$slug='')
 	global $infoSite;
 	
 	if($slug!=''){
-		return $urlHomes.$infoSite['Option']['value']['seoURL']['videos'].'/'.$slug.'.html';
+		//return $urlHomes.$infoSite['Option']['value']['seoURL']['videos'].'/'.$slug.'.html';
+		return $urlHomes.$slug.'.html';
 	}elseif($id!=''){
 		$id= new MongoId($id);
 		$data= $modelVideo->getVideo($id);
-		return $urlHomes.$infoSite['Option']['value']['seoURL']['videos'].'/'.$data['Video']['slug'].'.html';
+		//return $urlHomes.$infoSite['Option']['value']['seoURL']['videos'].'/'.$data['Video']['slug'].'.html';
+		return $urlHomes.$data['Video']['slug'].'.html';
 	}else{
 		return $urlHomes.$infoSite['Option']['value']['seoURL']['videos'].'/';
 	}
@@ -491,13 +502,13 @@ function getMenusDefault()
 	if(isset($listData['Option']['value']))
 	{
 		$menus= $modelOption->getOptionById($listData['Option']['value']);
-		if($menus) return $menus['Option']['value']['category'];
+		if(!empty($menus['Option']['value']['category'])) return $menus['Option']['value']['category'];
 	}
 	
 	$menus= $modelOption->getOption('menus');
-	if($menus) return $menus['Option']['value']['category'];
+	if(!empty($menus['Option']['value']['category'])) return $menus['Option']['value']['category'];
 
-	return $menus;
+	return array();
 }
 
 function exportExcel($table=array(),$data=array())
@@ -539,7 +550,7 @@ function createSlugMantan($text)
 	,"Ờ","Ớ","Ợ","Ở","Ỡ",
 	"Ù","Ú","Ụ","Ủ","Ũ","Ư","Ừ","Ứ","Ự","Ử","Ữ",
 	"Ỳ","Ý","Ỵ","Ỷ","Ỹ",
-	"Đ"," ","·","/","_",",",":",";",".","&","%","@","'",'"',"?");
+	"Đ"," ","·","/","_",",",":",";",".","&","%","@","'",'"',"?","+","*","~","!","#","$","^","’");
 	
 	$marKoDau=array("a","a","a","a","a","a","a","a","a","a","a"
 	,"a","a","a","a","a","a",
@@ -558,9 +569,106 @@ function createSlugMantan($text)
 	,"O","O","O","O","O",
 	"U","U","U","U","U","U","U","U","U","U","U",
 	"Y","Y","Y","Y","Y",
-	"D","-","","","-","","","","","","","","","","");
+	"D","-","","","-","","","","","","","","","","","","","","","","","","");
 	
-	$text= str_replace($marTViet,$marKoDau,trim($text));
+	$text= str_replace('-',' ',$text);
+	$text= preg_replace('/\s\s+/', ' ', trim($text));
+	$text= str_replace($marTViet,$marKoDau,$text);
+
+	if($text !== mb_convert_encoding( mb_convert_encoding($text, 'UTF-32', 'UTF-8'), 'UTF-8', 'UTF-32') ) {
+		$text = mb_convert_encoding($text, 'UTF-8', mb_detect_encoding($text));
+	}
+
+    $text = htmlentities($text, ENT_NOQUOTES, 'UTF-8');
+
+    $text = preg_replace('`&([a-z]{1,2})(acute|uml|circ|grave|ring|cedil|slash|tilde|caron|lig);`i', '\\1', $text);
+
+    $text = html_entity_decode($text, ENT_NOQUOTES, 'UTF-8');
+
+    $text = preg_replace(array('`[^a-z0-9]`i','`[-]+`'), '-', $text);
+
+    $text = strtolower( trim($text, '-') );
+
 	return strtolower($text);
 }
+
+function getDomainUrl()
+{
+	$domainURL = 'http';
+
+   	if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {$domainURL .= "s";}
+
+   	$domainURL .= "://";
+
+   	if ($_SERVER["SERVER_PORT"] != "80" && $_SERVER["SERVER_PORT"] != "443"){
+        $domainURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].'/';
+   	} else {
+        $domainURL .= $_SERVER["SERVER_NAME"].'/';
+   	}
+
+   	return $domainURL;
+}
+
+function curPageURL($type=0)
+{
+
+   $pageURL = 'http';
+
+   if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+
+   $pageURL .= "://";
+
+   if ($_SERVER["SERVER_PORT"] != "80" && $_SERVER["SERVER_PORT"] != "443")
+
+   {
+
+        $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+
+   } else
+
+   {
+
+        $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+
+   }
+   
+   if($type==1)
+   {
+       return $pageURL;
+   }
+   else
+   {
+   	    return urlencode($pageURL);
+   }
+}
+
+function sendDataConnectMantan($url,$data=null)
+    {
+	    if($data){
+	   		$stringSend= array();
+
+	   		foreach($data as $key=>$value){
+	   			$stringSend[]= $key.'='.$value;
+	   		}
+	   		
+
+	   		$stringSend= implode('&', $stringSend);
+	   		
+			$ch = curl_init();
+
+			curl_setopt($ch, CURLOPT_URL,$url);
+			curl_setopt($ch, CURLOPT_POST, 1);
+			curl_setopt($ch, CURLOPT_POSTFIELDS,$stringSend);
+
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+			$server_output = curl_exec ($ch);
+
+			curl_close ($ch);
+
+			return $server_output;
+	    }else{
+		   return file_get_contents($url);
+	    }
+    }
 ?>

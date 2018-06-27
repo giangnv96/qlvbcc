@@ -54,6 +54,32 @@ class User extends AppModel
 		}
 		return false;
 	}
+
+	function getUserByEmail($email='') {
+        $dk = array('email' => $email);
+        $return = $this->find('first', array('conditions' => $dk));
+        return $return;
+    }
+
+    function checkLoginByToken($token='',$fields=null, $dk= array()) {
+        $dk['accessToken']= $token;
+        $return = $this->find('first', array('conditions' => $dk, 'fields'=>$fields));
+        return $return;
+    }
+
+    function checkLoginByFone($fone='',$pass='',$fields=null, $dk= array()) {
+        $dk['phone']= $fone;
+        $dk['pass']= md5($pass);
+        $return = $this->find('first', array('conditions' => $dk, 'fields'=>$fields));
+        return $return;
+    }
+
+    function getUserByFone($fone='') {
+        $dk = array('phone' => $fone);
+        $return = $this->find('first', array('conditions' => $dk));
+        return $return;
+    }
+
 	public function isExistUser($username,$email) {
         //$conditions['$or'][0]['slug']= array('$regex' => $key);
 		

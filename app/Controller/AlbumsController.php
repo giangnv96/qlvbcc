@@ -76,6 +76,7 @@
         	
             if($users)
             {
+                //Controller::loadModel('Slug');
 	            $this->setup();
 	            Controller::loadModel('Album');
 	            $title= $_POST['title'];
@@ -85,7 +86,8 @@
 	            $key= $_POST['key'];
 
 	            $id= $_POST['id'];
-	            $slug= $_POST['slug'];
+	            $slug= createSlugMantan(trim($_POST['title']));
+                //$slug= $this->Slug->saveSlug($slug,'albums','index');
 
 	            if($id=="") $id= null;
 
@@ -187,11 +189,18 @@
                 {
 
                   Controller::loadModel('Album');
+                  Controller::loadModel('Slug');
+
 				  $id= new MongoId($_POST['id']);
-                  $this->Album->delete($id);
+                  $data= $this->Album->find('first',array('conditions'=>array('_id'=>$id)));
+                  if($data){
+                    $this->Slug->deleteSlug($data['Album']['slug']);
+                    $this->Album->delete($id);
+                  }
+                  
 
                 }
-                $this->redirect($urlLocal['urlAlbums'].'listAlbums');
+                //$this->redirect($urlLocal['urlAlbums'].'listAlbums');
             }
             else 
             {
@@ -219,7 +228,35 @@
 
         }
 // Theme ------
-		function index($slug=null)
+        function index($slug=null)
+        {
+            $this->setup();
+            $this->layout='default';
+            $urlLocal= $this->getUrlLocal();
+            Controller::loadModel('Album');
+            
+            global $infoSite;
+            if(empty($slug)) $slug= $this->request->url;
+            
+            $slug= str_replace('.html', '', $slug);
+            $infoAlbum= $this->Album->getSlugAlbum($slug);
+            
+            if($infoAlbum)
+            {
+                $this->set('infoAlbum', $infoAlbum);
+                
+                global $metaTitleMantan;
+                $metaTitleMantan= $infoAlbum['Album']['title'];
+            }
+            else
+            {
+                $this->redirect($urlLocal['urlHomes']);
+            }
+            
+            $this->set('slug', $slug);
+        }
+
+		function allAlbums()
 		{
 			$this->setup();
 			$this->layout='default';
@@ -228,78 +265,57 @@
          	
 			global $infoSite;
 			
-         	if(!$slug)
-         	{
-         		$dk= array('lock'=>array('$ne'=>1) );
-				$today= getdate();
-				$dk['time']= array('$lte' => $today[0]);
-				
-				$page= (isset($_GET['page']))? (int) $_GET['page']:1;
-				if($page<=0) $page=1;
-				$limit= $infoSite['Option']['value']['postsOnThePage'];
-				$order=array('time'=>'desc','created' => 'desc','title'=>'asc');
-				$checkTime= true;
-				
-				$return = $this->Album->getPageData($page,$limit,$dk,$order,$checkTime);
-				
-				$totalData= $this->Album->find('count',array('conditions' => $dk));
-				$urlNow= $this->curPageURL(1);
-		
-				$balance= $totalData%$limit;
-				$totalPage= ($totalData-$balance)/$limit;
-				if($balance>0)$totalPage+=1;
-				
-				$back=$page-1;$next=$page+1;
-				if($back<=0) $back=1;
-				if($next>=$totalPage) $next=$totalPage;
-				
-				if(isset($_GET['page'])){
-					$urlPage= str_replace('&page='.$_GET['page'], '', $urlNow);
-					$urlPage= str_replace('page='.$_GET['page'], '', $urlPage);
-				}else{
-					$urlPage= $urlNow;
-				}
+     		$dk= array('lock'=>array('$ne'=>1) );
+			$today= getdate();
+			$dk['time']= array('$lte' => $today[0]);
+			
+			$page= (isset($_GET['page']))? (int) $_GET['page']:1;
+			if($page<=0) $page=1;
+			$limit= $infoSite['Option']['value']['postsOnThePage'];
+			$order=array('time'=>'desc','created' => 'desc','title'=>'asc');
+			$checkTime= true;
+			
+			$return = $this->Album->getPageData($page,$limit,$dk,$order,$checkTime);
+			
+			$totalData= $this->Album->find('count',array('conditions' => $dk));
+			$urlNow= curPageURL(1);
+	
+			$balance= $totalData%$limit;
+			$totalPage= ($totalData-$balance)/$limit;
+			if($balance>0)$totalPage+=1;
+			
+			$back=$page-1;$next=$page+1;
+			if($back<=0) $back=1;
+			if($next>=$totalPage) $next=$totalPage;
+			
+			if(isset($_GET['page'])){
+				$urlPage= str_replace('&page='.$_GET['page'], '', $urlNow);
+				$urlPage= str_replace('page='.$_GET['page'], '', $urlPage);
+			}else{
+				$urlPage= $urlNow;
+			}
 
-				if(strpos($urlPage,'?')!== false){
-					if(count($_GET)>=1){
-						$urlPage= $urlPage.'&page=';
-					}else{
-						$urlPage= $urlPage.'page=';
-					}
+			if(strpos($urlPage,'?')!== false){
+				if(count($_GET)>1 ||  (count($_GET)==1 && !isset($_GET['page']))){
+					$urlPage= $urlPage.'&page=';
 				}else{
-					$urlPage= $urlPage.'?page=';
+					$urlPage= $urlPage.'page=';
 				}
-				
-				$this->set('page', $page);
-				$this->set('totalPage', $totalPage);
-				$this->set('back', $back);
-				$this->set('next', $next);
-				$this->set('urlPage', $urlPage);
-	            
-	            $this->set('listAlbums', $return);
-	            
-	            global $metaTitleMantan;
-	            $metaTitleMantan= 'Albums | '.$metaTitleMantan;
-            }
-            else
-            {
-            	$slug= str_replace('.html', '', $slug);
-	            $infoAlbum= $this->Album->getSlugAlbum($slug);
-	            
-	            if($infoAlbum)
-	            {
-	            	$this->set('infoAlbum', $infoAlbum);
-	            	
-	            	global $metaTitleMantan;
-					$metaTitleMantan= $infoAlbum['Album']['title'].' | '.$metaTitleMantan;
-	            }
-	            else
-				{
-					$this->redirect($urlLocal['urlHomes']);
-				}
-            }
+			}else{
+				$urlPage= $urlPage.'?page=';
+			}
+			
+			$this->set('page', $page);
+			$this->set('totalPage', $totalPage);
+			$this->set('back', $back);
+			$this->set('next', $next);
+			$this->set('urlPage', $urlPage);
             
-            $this->set('slug', $slug);
+            $this->set('listAlbums', $return);
+            
+            global $metaTitleMantan;
+            $metaTitleMantan= 'Albums | '.$metaTitleMantan;
+        
 		}
          
     }

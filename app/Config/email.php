@@ -2,13 +2,13 @@
 						class EmailConfig {
 							public $default = array(
 								"transport" => "Smtp", 
-								"from" => array("giang@gmail.com" => ""), 
-								"host" => "123456", 
+								"from" => array("mantansource@gmail.com" => "Mantan Source"), 
+								"host" => "ssl://smtp.gmail.com", 
 								"port" => 465, 
 								"timeout" => 30, 
 								"emailFormat" => "html", 
-								"username" => "giang@gmail.com", 
-								"password" => "123456", 
+								"username" => "mantansource@gmail.com", 
+								"password" => "************", 
 								"tls" => false, 
 								"log" => false, 
 								"charset" => "utf-8", 

@@ -1,1 +1,0 @@
-<?php getFileTheme('dashboradSV.php'); ?>

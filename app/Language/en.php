@@ -32,6 +32,7 @@
 	$languageMantan['domainName']= 'Domain name';
 	$languageMantan['edit']= 'Edit';
 	$languageMantan['email']= 'Email';
+	$languageMantan['embedScript']= 'Embed script';
 	$languageMantan['enterTheNewPassword']= 'Enter the new password';
 	$languageMantan['event']= 'Event';
 	$languageMantan['expand']= 'Expand';

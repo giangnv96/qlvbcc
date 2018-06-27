@@ -94,7 +94,12 @@
 	<div class="clear"></div>
 	
 	<div id="content">
-	
+	<script LANGUAGE="JavaScript">
+		function countCharacter(field,count){
+		var dodai = field.value.length;
+		count.value = field.value.length
+		}
+	</script>
 	<form action="<?php echo $urlNotices;?>saveNotices" method="post" name="dangtin" enctype="multipart/form-data">
 	
 	    <input type="hidden" value="<?php if(isset($news['Notice']['id'])) echo $news['Notice']['id'];?>" name="id" />
@@ -103,8 +108,12 @@
 		    <table cellspacing="0" style="width: 100%;" class="table" >
 		        <tr>
 		            <td colspan="2" >
-						<p><b><?php echo $languageMantan['title'];?> (*)</b></p>
-						<p><input type="text" class="form-control" name="title" id='title' value="<?php if(isset($news['Notice']['title'])) echo $news['Notice']['title'];?>" /></p>
+						<p><b><?php echo $languageMantan['title'];?> (*)</b><span style="color:#bbb;"> - Số ký tự : <input readonly type="text" name="leftName" size=3 maxlength=3 value="0" disabled="disabled" style="border: 0;background: #fff;"></span></p>
+						<p>
+						<input style="" type="text" name="title" value="<?php echo (isset($news['Notice']['title']))?$news['Notice']['title']:'' ;?>" class="form-control"  id="title" onKeyDown="countCharacter(this.form.title, this.form.leftName);" onKeyUp="countCharacter(this.form.title,this.form.leftName);" />
+
+						
+						</p>
 					</td>
 		
 		        </tr>
@@ -276,8 +285,8 @@
 			</ul>
 			
 			<div class="clear"></div>
-			<p><b><?php echo $languageMantan['description'];?></b></p>
-			<textarea name="introductory" class="form-control" rows="5"><?php if(isset($news['Notice']['introductory'])) echo $news['Notice']['introductory'];?></textarea>
+			<p><b><?php echo $languageMantan['description'];?></b><span style="color:#bbb;"> - Số ký tự : <input readonly type="text" name="leftDescription" size=3 maxlength=3 value="0" disabled="disabled" style="border: 0;background: #fff;"></span></p>
+			<textarea name="introductory"  id="introductory" onKeyDown="countCharacter(this.form.introductory, this.form.leftDescription);" onKeyUp="countCharacter(this.form.introductory,this.form.leftDescription);" class="form-control" rows="5"><?php if(isset($news['Notice']['introductory'])) echo $news['Notice']['introductory'];?></textarea>
 	    </div>
 		<div class="clear"></div>
 	    <p><b><?php echo $languageMantan['content'];?></b></p>

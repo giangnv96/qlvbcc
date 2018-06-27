@@ -32,19 +32,7 @@
        
        function saveData($name,$code,$slug,$image,$description,$id= null)
        {
-       		 $listSlug= array();
-	       	 $number= 0;
-	       	 $slugStart= $slug;
-	       	 do
-	       	 {
-	       	 	 $number++;
-		       	 $listSlug= $this->find('all', array('conditions' => array('slug'=>$slug) ));
-				 if(count($listSlug)>0 && $listSlug[0]['Video']['id']!=$id)
-				 {
-				 	$slug= $slugStart.'-'.$number;
-		       	 }
-	       	 } while (count($listSlug)>0 && $listSlug[0]['Video']['id']!=$id);
-	       	 
+       		 $modelSlug= ClassRegistry::init('Slug');
 	         if($id)
 	         {
 	            $id= new MongoId($id);
@@ -56,9 +44,13 @@
 	            $save['Video']['time']= $today[0];
 	            $save['Video']['view']= 0;
 	         }
+	         if(!isset($save['Video']['idSlug'])) $save['Video']['idSlug']= '';
+         	$infoSlug= $modelSlug->saveSlug($slug,$save['Video']['idSlug'],'videos','index');
+
 	         $save['Video']['name']= $name;
 	         $save['Video']['code']= $code;
-	         $save['Video']['slug']= $slug;
+	         $save['Video']['slug']= $infoSlug['slug'];
+         	$save['Video']['idSlug']= $infoSlug['idSlug'];
 			 $save['Video']['image']= $image;
 			 $save['Video']['description']= $description;
 	

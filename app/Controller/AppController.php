@@ -48,9 +48,8 @@ class AppController extends Controller {
     function getUrlLocal()
     {
     	//Configure::write('debug', 2);
-    	$urlBase= Router::url('/', true);
-    	$urlBase= str_replace('Index.php/', '', $urlBase);
-    	$urlBase= str_replace('index.php/', '', $urlBase);
+    	$urlBase= ($this->webroot=='/')?getDomainUrl():getDomainUrl().$this->webroot;
+    	$urlBase= str_replace('/app/webroot/', '', $urlBase);
     	
     	$url['urlHomes']= $urlBase;
     	$url['urlAdmins']= $urlBase.'admins/';
@@ -60,19 +59,18 @@ class AppController extends Controller {
     	$url['urlPlugins']= $urlBase.'plugins/';
     	$url['urlVideos']= $urlBase.'videos/';
 		$url['urlUsers']= $urlBase.'users/';
-    	$url['webRoot']= str_replace('index.php/', '', $urlBase).'/app/webroot/';
-               
-	 	if(function_exists('apache_get_modules') && in_array('mod_rewrite', apache_get_modules()))
-        {
+    	$url['webRoot']= $this->webroot;
+         
+	 	if(file_exists('../Config/database.php')){
         	$url['urlLocalPlugin']= '../Plugin/';
         	$url['urlLocalTheme']= '../Theme/';
         	$url['urlLocalLanguage']= '../Language/';
-        }
-        else
-        {
+        	$url['urlLocalWebroot']= '../webroot/';
+        }else{
             $url['urlLocalPlugin']= 'app/Plugin/';
             $url['urlLocalTheme']= 'app/Theme/';
             $url['urlLocalLanguage']= 'app/Language/';
+            $url['urlLocalWebroot']= 'app/webroot/';
         }
 
         return $url;
@@ -170,7 +168,8 @@ class AppController extends Controller {
 	              $this->set('menuPlugins', $plugins['Option']['value']);
 	              
 	              $themeActive= $this->Option->getOption('theme');
-	              $this->set('themeActive', $urlLocal['urlLocalTheme'].'/'.$themeActive['Option']['value'].'/' );
+	         
+	              $this->set('themeActive', $urlLocal['urlLocalTheme'].$themeActive['Option']['value'].'/' );
 	              
 	              
 	              $this->set('infoSite', $infoSite);
@@ -182,7 +181,7 @@ class AppController extends Controller {
 	              include($urlLocal['urlLocalLanguage'].'/'.$language['Option']['value']['file']);
 	              $this->set('languageMantan', $languageMantan );
 	              
-	              $urlNow= $this->curPageURL(1);
+	              $urlNow= curPageURL(1);
 	              $urlAdmins= $urlLocal['urlAdmins'];
 	              $urlOptions= $urlLocal['urlOptions'];
 	              $urlNotices= $urlLocal['urlNotices'];
@@ -192,7 +191,7 @@ class AppController extends Controller {
 	              $urlHomes= $urlLocal['urlHomes'];
 				  $urlUsers= $urlLocal['urlUsers'];
 	              
-	              $urlThemeActive= $urlHomes.'app/Theme/'.$themeActive['Option']['value'].'/';
+	              $urlThemeActive= $urlLocal['urlHomes'].'app/Theme/'.$themeActive['Option']['value'].'/';
 	              $urlLocalThemeActive= $urlLocal['urlLocalTheme'].$themeActive['Option']['value'].'/';
 	              $webRoot= $urlLocal['webRoot'];
 	              
@@ -259,32 +258,34 @@ class AppController extends Controller {
                         	
 	            	$menus= array();
 	            	$menus['title']= $languageMantan['system'];
-	                $menus['sub'][0]= array( 'name'=>$languageMantan['setting'],'url'=>$urlOptions.'infoSite','classIcon'=>'fa-wrench');
+	                $menus['sub'][0]= array( 'name'=>$languageMantan['setting'],'url'=>$urlOptions.'infoSite','classIcon'=>'fa-wrench','permission'=>'infoSite');
 	                $menus['sub'][1]= array( 'name'=>$languageMantan['news'],
 			                				 'url'=>$urlNotices.'listNotices',
 			                				 'classIcon'=>'fa-newspaper-o',
-			                				 'sub'=>array( array('name'=>$languageMantan['allPosts'],'url'=>$urlNotices.'listNotices'),
-			                							   array('name'=>$languageMantan['newsCategories'],'url'=>$urlOptions.'categoryNotice')
+			                				 'permission'=>'listNotices',
+			                				 'sub'=>array( array('name'=>$languageMantan['allPosts'],'url'=>$urlNotices.'listNotices','permission'=>'listNotices'),
+			                							   array('name'=>$languageMantan['newsCategories'],'url'=>$urlOptions.'categoryNotice','permission'=>'categoryNotice')
 			                							) 
 			                			   );
-	                $menus['sub'][2]= array('name'=>$languageMantan['pages'],'url'=>$urlNotices.'listPages','classIcon'=>'fa-file-o');
-	                $menus['sub'][3]= array('name'=>$languageMantan['album'],'url'=>$urlAlbums.'listAlbums','classIcon'=>'fa-camera-retro');
-	                $menus['sub'][4]= array('name'=>$languageMantan['video'],'url'=>$urlVideos.'listVideos','classIcon'=>'fa-file-video-o');
-	                $menus['sub'][5]= array('name'=>$languageMantan['fileManagement'],'url'=>$urlAdmins.'listFiles','classIcon'=>'fa-file-archive-o');
+	                $menus['sub'][2]= array('name'=>$languageMantan['pages'],'url'=>$urlNotices.'listPages','classIcon'=>'fa-file-o','permission'=>'listPages');
+	                $menus['sub'][3]= array('name'=>$languageMantan['album'],'url'=>$urlAlbums.'listAlbums','classIcon'=>'fa-camera-retro','permission'=>'listAlbums');
+	                $menus['sub'][4]= array('name'=>$languageMantan['video'],'url'=>$urlVideos.'listVideos','classIcon'=>'fa-file-video-o','permission'=>'listVideos');
+	                $menus['sub'][5]= array('name'=>$languageMantan['fileManagement'],'url'=>$urlAdmins.'listFiles','classIcon'=>'fa-file-archive-o','permission'=>'listFiles');
 	                
-	                $menus['sub'][6]= array('name'=>$languageMantan['languages'],'url'=>$urlOptions.'languages','classIcon'=>'fa-language');
+	                $menus['sub'][6]= array('name'=>$languageMantan['languages'],'url'=>$urlOptions.'languages','classIcon'=>'fa-language','permission'=>'languages');
 	                $menus['sub'][7]= array( 'name'=>$languageMantan['appearance'],
 			                				 'url'=>$urlOptions.'themes',
 			                				 'classIcon'=>'fa-file-image-o',
-			                				 'sub'=>array( array('name'=>$languageMantan['interfaceStorage'],'url'=>$urlOptions.'themes'),
-			                							   array('name'=>$languageMantan['menu'],'url'=>$urlOptions.'menus')
+			                				 'permission'=>'themes',
+			                				 'sub'=>array( array('name'=>$languageMantan['interfaceStorage'],'url'=>$urlOptions.'themes','permission'=>'themes'),
+			                							   array('name'=>$languageMantan['menu'],'url'=>$urlOptions.'menus','permission'=>'menus')
 			                							) 
 			                			   );
-	                $menus['sub'][8]= array('name'=>$languageMantan['expand'],'url'=>$urlOptions.'plugins','classIcon'=>'fa-arrows-alt');
-	                $menus['sub'][9]= array('name'=>'Site map','url'=>$urlOptions.'sitemap','classIcon'=>'fa-sitemap');
-					$menus['sub'][10]= array('name'=>$languageMantan['userList'],'url'=>$urlUsers.'listUser','classIcon'=>'fa-users');
-	                $menus['sub'][11]= array('name'=>$languageMantan['account'],'url'=>$urlAdmins.'listAccount','classIcon'=>'fa-user-secret');
-	                $menus['sub'][12]= array('name'=>$languageMantan['logout'].' ['.$userAdmins['Admin']['user'].']','url'=>$urlAdmins.'logout','classIcon'=>'fa-sign-out');
+	                $menus['sub'][8]= array('name'=>$languageMantan['expand'],'url'=>$urlOptions.'plugins','classIcon'=>'fa-arrows-alt','permission'=>'plugins');
+	                $menus['sub'][9]= array('name'=>'Site map','url'=>$urlOptions.'sitemap','classIcon'=>'fa-sitemap','permission'=>'sitemap');
+					$menus['sub'][10]= array('name'=>$languageMantan['userList'],'url'=>$urlUsers.'listUser','classIcon'=>'fa-users','permission'=>'listUser');
+	                $menus['sub'][11]= array('name'=>$languageMantan['account'],'url'=>$urlAdmins.'listAccount','classIcon'=>'fa-user-secret','permission'=>'listAccount');
+	                $menus['sub'][12]= array('name'=>$languageMantan['logout'].' ['.$userAdmins['Admin']['user'].']','url'=>$urlAdmins.'logout','classIcon'=>'fa-sign-out','permission'=>'logout');
 	                
 	                			   
 	                $hookMenuAdminMantan= array_merge(array($menus),$hookMenuAdminMantan);
@@ -310,40 +311,5 @@ class AppController extends Controller {
 		$result = file_get_contents($url, false, $context);
 		return $result;
      }
-     
-     
-    function curPageURL($type=0)
-    {
-
-       $pageURL = 'http';
-
-       if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
-
-       $pageURL .= "://";
-
-       if ($_SERVER["SERVER_PORT"] != "80")
-
-       {
-
-            $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
-
-       } else
-
-       {
-
-            $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
-
-       }
-       
-       if($type==1)
-       {
-           return $pageURL;
-       }
-       else
-       {
-       	    return urlencode($pageURL);
-       }
-    }
-        
 }
 ?>

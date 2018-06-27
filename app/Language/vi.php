@@ -32,6 +32,7 @@
 	$languageMantan['domainName']= 'Tên miền';
 	$languageMantan['edit']= 'Sửa';
 	$languageMantan['email']= 'Email';
+	$languageMantan['embedScript']= 'Mã nhúng script';
 	$languageMantan['enterTheNewPassword']= 'Nhập lại mật khẩu mới';
 	$languageMantan['event']= 'Sự kiện';
 	$languageMantan['expand']= 'Mở rộng';

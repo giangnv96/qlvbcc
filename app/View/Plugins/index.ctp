@@ -7,16 +7,15 @@
 			$$key= $value;
 		}
 	}
-	
 	if($urlFilePlugin)
 	{
 		if($routesType=='Plugin'){
-			if(file_exists($urlLocal['urlLocalPlugin'].$urlFilePlugin)){
-				include($urlLocal['urlLocalPlugin'].$urlFilePlugin);
+			if(file_exists(__DIR__.'/../../Plugin/'.$urlFilePlugin)){
+				include(__DIR__.'/../../Plugin/'.$urlFilePlugin);
 			}
 		}elseif($routesType=='Theme'){
-			if(file_exists($urlLocal['urlLocalTheme'].$urlFilePlugin)){
-				include($urlLocal['urlLocalTheme'].$urlFilePlugin);
+			if(file_exists(__DIR__.'/../../Theme/'.$urlFilePlugin)){
+				include(__DIR__.'/../../Theme/'.$urlFilePlugin);
 			}
 		}
 

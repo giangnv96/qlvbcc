@@ -96,7 +96,7 @@
 	                            <img id="image<?php echo $video['Video']['id'];?>" width="200px" src="<?php echo $video['Video']['image'];?>">
 	                        </a>
 	                  	</td>
-	                  	<td id="name<?php echo $video['Video']['id'];?>" ><?php echo $video['Video']['name'];?></td>
+	                  	<td><a id="name<?php echo $video['Video']['id'];?>"  href="<?php echo getUrlVideo($video['Video']['id'],$video['Video']['slug']);?>" target="_blank"><?php echo $video['Video']['name'];?></a></td>
 						<td id="description<?php echo $video['Video']['id'];?>" ><?php echo $video['Video']['description'];?></td>
 	                  	<td>
 		                  	<input class="btn btn-default" onclick="deleteData('<?php echo $video['Video']['id'];?>')" type="button" value="<?php echo $languageMantan['delete'];?>" />

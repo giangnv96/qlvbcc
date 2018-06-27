@@ -43,6 +43,8 @@
 			$users= $this->Session->read('infoAdminLogin');
 			
 			Controller::loadModel('Option');
+			//Controller::loadModel('Slug');
+
         	$urlLocal= $this->getUrlLocal();
         	
 			if($users)
@@ -51,6 +53,7 @@
 				$name= $_POST['name'];
 				$parent= (int) $_POST['parent'];
 				$slug= createSlugMantan($_POST['name']);
+				//$slug= $this->Slug->saveSlug($slug,'notices','cat');
 				$key= $_POST['key'];
                 $image= $_POST['image'];
 				$description= $_POST['description'];
@@ -74,12 +77,16 @@
 			//Configure::write('debug', 2);
 			
 			$idCat= (int) $_POST['idDelete'];
+			$slugCat= (int) $_POST['slugDelete'];
 			$users= $this->Session->read('infoAdminLogin');
 	
 			if($users)
 			{
 				Controller::loadModel('Option');
+				Controller::loadModel('Slug');
+
 				$return= $this->Option->deleteCatageryNotice($idCat);
+				$this->Slug->deleteSlug($slugCat);
 			}
 		}   
         
@@ -303,7 +310,7 @@
                 
                 foreach($pages as $key=>$page)
                 { 
-                	$pages[$key]= array ( 'url' => '/'.$infoSite['Option']['value']['seoURL']['notices'].'/'.$page['Notice']['slug'].'.html',
+                	$pages[$key]= array ( 'url' => '/'.$page['Notice']['slug'].'.html',
 									      'name' => $page['Notice']['title']
 									    );
                 }
@@ -329,7 +336,7 @@
 																	)
 														),
 													array('title'=>$languageMantan['newsCategories'],
-                										  'sub'=>$this->changeTypeCategory($categoryNotice['Option']['value']['category'],'/'.$infoSite['Option']['value']['seoURL']['notices'].'/'.$infoSite['Option']['value']['seoURL']['cat'].'/')
+                										  'sub'=>$this->changeTypeCategory($categoryNotice['Option']['value']['category'],'/')
 														  ),
 													array('title'=>$languageMantan['pages'],
                 										  'sub'=>$pages
@@ -472,38 +479,38 @@
 			
             $return= $this->Option->saveInfoSite($_POST);
 			
-			if(function_exists('apache_get_modules') && in_array('mod_rewrite', apache_get_modules()))
-			{
+			if(file_exists('../Config/database.php')){
 				$urlLocalConfig= '../Config/';
-			}
-			else
-			{
+			}else{
 				$urlLocalConfig= 'app/Config/';
 			}
 			
-			// write file email.php
-			$string= '<?php 
-						class EmailConfig {
-							public $default = array(
-								"transport" => "Smtp", 
-								"from" => array("'.$_POST['account'].'" => "'.$_POST['show'].'"), 
-								"host" => "'.$_POST['host'].'", 
-								"port" => '.$_POST['port'].', 
-								"timeout" => 30, 
-								"emailFormat" => "html", 
-								"username" => "'.$_POST['account'].'", 
-								"password" => "'.$_POST['password'].'", 
-								"tls" => false, 
-								"log" => false, 
-								"charset" => "utf-8", 
-								"headerCharset" => "utf-8", 
-								
-							);
-						}
-					?>';
-			$file = fopen($urlLocalConfig.'email.php','w');
-			fwrite($file,$string);
-			fclose($file);
+			$passEmail= str_replace('*', '', $_POST['password']);
+			if(!empty($passEmail)){
+				// write file email.php
+				$string= '<?php 
+							class EmailConfig {
+								public $default = array(
+									"transport" => "Smtp", 
+									"from" => array("'.$_POST['account'].'" => "'.$_POST['show'].'"), 
+									"host" => "'.$_POST['host'].'", 
+									"port" => '.$_POST['port'].', 
+									"timeout" => 30, 
+									"emailFormat" => "html", 
+									"username" => "'.$_POST['account'].'", 
+									"password" => "'.$_POST['password'].'", 
+									"tls" => false, 
+									"log" => false, 
+									"charset" => "utf-8", 
+									"headerCharset" => "utf-8", 
+									
+								);
+							}
+						?>';
+				$file = fopen($urlLocalConfig.'email.php','w');
+				fwrite($file,$string);
+				fclose($file);
+			}
 			
 			// write file routesSEO.php
 			$string= '<?php 
@@ -513,9 +520,11 @@
 						Router::connect($urlBase."'.$_POST["seoURL"]["notices"].'/*", array("controller" => "notices", "action" => "index"));
 						
 						// VideosController
+						Router::connect($urlBase."'.$_POST["seoURL"]["videos"].'/", array("controller" => "videos", "action" => "allVideos"));
 						Router::connect($urlBase."'.$_POST["seoURL"]["videos"].'/*", array("controller" => "videos", "action" => "index"));
 						
 						// AlbumsController
+						Router::connect($urlBase."'.$_POST["seoURL"]["albums"].'/", array("controller" => "albums", "action" => "allAlbums"));
 						Router::connect($urlBase."'.$_POST["seoURL"]["albums"].'/*", array("controller" => "albums", "action" => "index"));
 						
 						// UsersController
@@ -831,6 +840,7 @@
 						$info= @simplexml_load_file($filename);
 						
 						if(empty($info)){
+							$info= (object) '';
 							$info->app= '';
 							$info->verName= '';
 							$info->des= '';

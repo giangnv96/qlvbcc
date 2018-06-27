@@ -11,7 +11,7 @@ class UsersController extends AppController {
 
         Controller::loadModel('User');
         $urlLocal = $this->getUrlLocal();
-        $urlNow = $this->curPageURL(1);
+        $urlNow = curPageURL(1);
 
         if (checkAdminLogin()) {
             $page = (isset($_GET['page'])) ? (int) $_GET['page'] : 1;
@@ -44,7 +44,7 @@ class UsersController extends AppController {
             }
 
             if (strpos($urlPage, '?') !== false) {
-                if (count($_GET) > 1) {
+                if(count($_GET)>1 ||  (count($_GET)==1 && !isset($_GET['page']))){
                     $urlPage = $urlPage . '&page=';
                 } else {
                     $urlPage = $urlPage . 'page=';
@@ -149,7 +149,12 @@ class UsersController extends AppController {
             $user = $this->User->checkLogin($username, $password);
             if ($user) {
                 $_SESSION['infoUser'] = $user;
-                $this->redirect($urlLocal['urlHomes']);
+
+                if(!empty($dataSend['linkRedirect'])){
+                    $this->redirect($dataSend['linkRedirect']);
+                }else{
+                    $this->redirect($urlLocal['urlHomes']);
+                }
             } else {
                 $this->redirect(getUrlUserLogin() . '?status=-1');
             }
@@ -232,7 +237,12 @@ class UsersController extends AppController {
 
     function login() {
         $this->setup();
+        $urlLocal = $this->getUrlLocal();
         $this->layout = 'default';
+
+        if(!empty($_SESSION['infoUser'])){
+            $this->redirect($urlLocal['urlHomes']);
+        }
     }
 
     function register() {
@@ -266,6 +276,8 @@ class UsersController extends AppController {
             }
 
             setVariable('dataUser', $dataUser);
+        }else{
+            $this->redirect($urlHomes);
         }
     }
 
@@ -329,7 +341,7 @@ class UsersController extends AppController {
         global $smtpSite;
         if (!empty($_POST)) {
             $modelUser = new User();
-            $dataUser = $modelUser->isExistUser($_POST['user'],$_POST['user']);
+            $dataUser = $modelUser->isExistUser($_POST['user'],$_POST['email']);
 
             //debug ($infoManager);
             if (empty($dataUser)) {

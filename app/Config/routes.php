@@ -1,4 +1,5 @@
 <?php
+//ini_set('mongo.long_as_object', 1);
 /**
  * Routes configuration
  *
@@ -33,6 +34,7 @@
  	}
  	*/
  	$urlBase= '/';
+ 	include_once "routesSlug.php";
  	// AdminsController
  	Router::connect($urlBase.'admins/installMantan/*', array('controller' => 'admins', 'action' => 'installMantan'));
  	Router::connect($urlBase.'admins/startInstall/*', array('controller' => 'admins', 'action' => 'startInstall'));
@@ -58,7 +60,8 @@
  	Router::connect($urlBase.'albums/saveImgAlbum/*', array('controller' => 'albums', 'action' => 'saveImgAlbum'));
  	Router::connect($urlBase.'albums/deleteAlbum/*', array('controller' => 'albums', 'action' => 'deleteAlbum'));
  	Router::connect($urlBase.'albums/deleteImgAlbum/*', array('controller' => 'albums', 'action' => 'deleteImgAlbum'));
- 	
+ 	Router::connect($urlBase.'albums', array('controller' => 'albums', 'action' => 'allAlbums'));
+
  	Router::connect($urlBase.'albums/*', array('controller' => 'albums', 'action' => 'index'));
  	
 	// UsersController
@@ -127,6 +130,7 @@
  	Router::connect($urlBase.'videos/listVideos/*', array('controller' => 'videos', 'action' => 'listVideos'));
  	Router::connect($urlBase.'videos/saveData/*', array('controller' => 'videos', 'action' => 'saveData'));
  	Router::connect($urlBase.'videos/deleteData/*', array('controller' => 'videos', 'action' => 'deleteData'));
+ 	Router::connect($urlBase.'videos', array('controller' => 'videos', 'action' => 'allVideos'));
  	
  	Router::connect($urlBase.'videos/*', array('controller' => 'videos', 'action' => 'index'));
  	
@@ -134,7 +138,7 @@
  	Router::connect($urlBase.'exports/excel/*', array('controller' => 'exports', 'action' => 'excel'));
  	
  	include_once "routesSEO.php";
- 	
+
  	// PluginsController
  	Router::connect($urlBase.'plugins/admin/*', array('controller' => 'plugins', 'action' => 'admin'));
  	Router::connect($urlBase.'plugins/theme/*', array('controller' => 'plugins', 'action' => 'theme'));
